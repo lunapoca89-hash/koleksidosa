@@ -201,8 +201,6 @@ body::after {
 }
 
 /* Link-Specific Styles */
-.discord { background: linear-gradient(135deg, rgba(88, 101, 242, 0.2), rgba(71, 82, 196, 0.2)); border-color: rgba(88, 101, 242, 0.4); }
-.twitter { background: linear-gradient(135deg, rgba(29, 161, 242, 0.2), rgba(13, 139, 217, 0.2)); border-color: rgba(29, 161, 242, 0.4); }
 .ai-bot1 { background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(238, 90, 82, 0.2)); border-color: rgba(255, 107, 107, 0.4); }
 .ai-bot2 { background: linear-gradient(135deg, rgba(78, 205, 196, 0.2), rgba(68, 160, 141, 0.2)); border-color: rgba(78, 205, 196, 0.4); }
 .link-dosa { background: linear-gradient(135deg, rgba(255, 69, 0, 0.2), rgba(255, 140, 0, 0.2)); border-color: rgba(255, 69, 0, 0.4); }
