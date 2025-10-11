@@ -33,7 +33,7 @@ document.querySelectorAll('.modal').forEach(modal => {
     });
 });
 
-// SCRIPT PEMBAYARAN QRIS
+// SCRIPT PEMBAYARAN QRIS (Single Payment Method)
 const qrisModal = document.getElementById('qrisModal');
 
 const forceDownload = async (linkElement, imageUrl, fileName) => {
@@ -54,26 +54,17 @@ document.querySelectorAll('.btn-payment').forEach(button => {
     button.addEventListener('click', () => {
         const itemName = button.dataset.name;
         const itemPrice = parseInt(button.dataset.price).toLocaleString('id-ID');
-        const gopayQr = button.dataset.qrisGopay;
-        const danaQr = button.dataset.qrisDana;
+        const qrisImage = button.dataset.qris;
 
         const downloadIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:16px; height:16px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>`;
-        const gopayLogoHtml = `<img src="https://upload.wikimedia.org/wikipedia/commons/8/86/Gopay_logo.svg" alt="GoPay Logo">`;
-        const danaLogoHtml = `<img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Logo_dana_blue.svg" alt="Dana Logo">`;
 
         qrisModal.innerHTML = `
             <div class="modal-content">
                 <h3>${itemName}</h3>
                 <p class="total-price">Total: Rp ${itemPrice}</p>
-                <div class="payment-options-container">
-                    <p class="payment-prompt">Silahkan pilih metode pembayaran</p>
-                    <div class="payment-options">
-                        <button class="btn-card" id="payWithGoPay">${gopayLogoHtml}</button>
-                        <button class="btn-card" id="payWithDana">${danaLogoHtml}</button>
-                    </div>
-                </div>
-                <div class="qris-display-area">
-                    <img src="" alt="QR Code Pembayaran" class="qris-image">
+                <p class="payment-prompt">Scan QR Code di bawah untuk pembayaran</p>
+                <div class="qris-display-area" style="display: flex;">
+                    <img src="${qrisImage}" alt="QR Code Pembayaran" class="qris-image">
                     <a href="#" class="download-link">
                         ${downloadIcon}
                         Download QR Code
@@ -85,26 +76,8 @@ document.querySelectorAll('.btn-payment').forEach(button => {
 
         qrisModal.style.display = 'flex';
 
-        const paymentOptionsContainer = qrisModal.querySelector('.payment-options-container');
-        const payGoPayBtn = qrisModal.querySelector('#payWithGoPay');
-        const payDanaBtn = qrisModal.querySelector('#payWithDana');
-        const qrisDisplay = qrisModal.querySelector('.qris-display-area');
-        const qrisImage = qrisModal.querySelector('.qris-image');
         const downloadLink = qrisModal.querySelector('.download-link');
-
-        payGoPayBtn.addEventListener('click', () => {
-            paymentOptionsContainer.style.display = 'none';
-            qrisImage.src = gopayQr;
-            forceDownload(downloadLink, gopayQr, 'QR_GoPay.png');
-            qrisDisplay.style.display = 'flex';
-        });
-
-        payDanaBtn.addEventListener('click', () => {
-            paymentOptionsContainer.style.display = 'none';
-            qrisImage.src = danaQr;
-            forceDownload(downloadLink, danaQr, 'QR_Dana.png');
-            qrisDisplay.style.display = 'flex';
-        });
+        forceDownload(downloadLink, qrisImage, 'QR_Payment.png');
 
         qrisModal.querySelector('.close-modal').addEventListener('click', () => {
             qrisModal.style.display = 'none';
