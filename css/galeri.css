@@ -13,7 +13,7 @@ body {
     align-items: center;
     padding: 40px 20px;
     position: relative;
-    overflow-x: hidden;
+    overflow-x: hidden; /* PENTING: Mencegah scroll horizontal */
     color: #fff;
 }
 
@@ -82,7 +82,8 @@ body::after {
 
 .photocard-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    /* [DIUBAH] Mengatur agar selalu 2 kolom */
+    grid-template-columns: repeat(2, 1fr);
     gap: clamp(15px, 3vw, 30px);
     justify-items: center;
 }
@@ -238,6 +239,9 @@ body::after {
     box-shadow: 0 0 25px rgba(138, 43, 226, 0.5);
     animation: fadeIn 0.1s ease-out;
     text-align: left;
+    /* [DIUBAH] Membuat pop-up bisa di-scroll dan tidak terlalu tinggi */
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 @keyframes fadeIn {
@@ -461,4 +465,11 @@ body::after {
 .btn-kembali:hover {
     background-color: rgba(90, 90, 122, 0.3);
     color: white;
+}
+
+/* [DITAMBAHKAN] Aturan tambahan untuk layar kecil (di bawah 500px) */
+@media (max-width: 500px) {
+    .photocard-wrapper {
+        grid-template-columns: 1fr; /* Ubah menjadi 1 kolom */
+    }
 }
