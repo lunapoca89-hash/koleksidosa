@@ -13,7 +13,7 @@ body {
     align-items: center;
     padding: 40px 20px;
     position: relative;
-    overflow-x: hidden; /* PENTING: Mencegah scroll horizontal */
+    overflow-x: hidden;
     color: #fff;
 }
 
@@ -80,12 +80,13 @@ body::after {
     line-height: 1.6;
 }
 
+/* --- RESPONSIVE UNIVERSAL GRID --- */
 .photocard-wrapper {
     display: grid;
-    /* [DIUBAH] Mengatur agar selalu 2 kolom */
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: clamp(15px, 3vw, 30px);
     justify-items: center;
+    width: 100%;
 }
 
 .batch-card {
@@ -194,10 +195,6 @@ body::after {
     font-size: clamp(0.75rem, 1.8vw, 0.9rem);
 }
 
-@media (max-width: 480px) {
-    .batch-card { max-width: 100%; }
-}
-
 .batch-card.coming-soon {
     opacity: 0.6;
     cursor: not-allowed;
@@ -215,6 +212,7 @@ body::after {
     pointer-events: none;
 }
 
+/* --- MODAL UNIVERSAL RESPONSIVE --- */
 .modal {
     display: none;
     position: fixed;
@@ -231,15 +229,13 @@ body::after {
 
 .modal-content {
     background: rgba(25, 25, 45, 0.95);
-    padding: 20px;
+    padding: clamp(15px, 3vw, 25px);
     border-radius: 16px;
-    max-width: 600px;
-    width: 90%;
+    width: min(90%, 600px);
     color: #fff;
     box-shadow: 0 0 25px rgba(138, 43, 226, 0.5);
     animation: fadeIn 0.1s ease-out;
     text-align: left;
-    /* [DIUBAH] Membuat pop-up bisa di-scroll dan tidak terlalu tinggi */
     max-height: 90vh;
     overflow-y: auto;
 }
@@ -282,8 +278,9 @@ body::after {
     background: rgba(138, 43, 226, 0.6);
 }
 
+/* QRIS modal dan tombol pembayaran responsif */
 #qrisModal .modal-content {
-    max-width: 400px;
+    width: min(90%, 400px);
     text-align: center;
 }
 
@@ -308,16 +305,15 @@ body::after {
 
 .payment-options {
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 12px;
 }
 
 .payment-options .btn-card {
+    flex: 1 1 120px;
+    max-width: 140px;
     aspect-ratio: 1 / 1;
-    width: 100px;
-    height: 100px;
-    flex: none;
     padding: 10px 5px;
     font-size: 0.9rem;
     flex-direction: column;
@@ -388,6 +384,7 @@ body::after {
     background: rgba(0, 200, 100, 0.4);
 }
 
+/* Warning modal tetap responsif */
 .warning-modal {
     position: fixed;
     top: 0;
@@ -467,9 +464,19 @@ body::after {
     color: white;
 }
 
-/* [DITAMBAHKAN] Aturan tambahan untuk layar kecil (di bawah 500px) */
-@media (max-width: 500px) {
-    .photocard-wrapper {
-        grid-template-columns: 1fr; /* Ubah menjadi 1 kolom */
+/* HP kecil tambahan */
+@media (max-width: 400px) {
+    body {
+        padding: 20px 10px;
+    }
+
+    .modal-content {
+        padding: 12px;
+        width: 95%;
+        font-size: 0.85rem;
+    }
+
+    .batch-card h2 {
+        font-size: 1rem;
     }
 }
