@@ -17,34 +17,37 @@ body {
     color: #fff;
 }
 
-body::before,
-body::after {
-    content: '';
-    position: absolute;
-    border-radius: 50%;
-}
+/* Animasi background hanya untuk desktop (performa lebih baik di mobile) */
+@media (min-width: 769px) {
+    body::before,
+    body::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+    }
 
-body::before {
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(255, 105, 180, 0.15) 0%, transparent 70%);
-    top: -150px;
-    left: -150px;
-    animation: float 18s infinite;
-}
+    body::before {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(255, 105, 180, 0.15) 0%, transparent 70%);
+        top: -150px;
+        left: -150px;
+        animation: float 18s infinite;
+    }
 
-body::after {
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, transparent 70%);
-    bottom: -120px;
-    right: -120px;
-    animation: float 14s infinite reverse;
-}
+    body::after {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(138, 43, 226, 0.15) 0%, transparent 70%);
+        bottom: -120px;
+        right: -120px;
+        animation: float 14s infinite reverse;
+    }
 
-@keyframes float {
-    0%, 100% { transform: translate(0, 0); }
-    50% { transform: translate(30px, -30px); }
+    @keyframes float {
+        0%, 100% { transform: translate(0, 0); }
+        50% { transform: translate(30px, -30px); }
+    }
 }
 
 .container {
@@ -80,26 +83,41 @@ body::after {
     line-height: 1.6;
 }
 
-/* --- RESPONSIVE UNIVERSAL GRID --- */
+/* Grid 2 kolom fixed di mobile, auto-fit di desktop */
 .photocard-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: clamp(15px, 3vw, 30px);
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
     justify-items: center;
-    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .photocard-wrapper {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: clamp(20px, 3vw, 30px);
+    }
 }
 
 .batch-card {
     background: rgba(30, 30, 50, 0.7);
     border: 1px solid rgba(255, 105, 180, 0.2);
-    border-radius: 20px;
-    padding: clamp(12px, 3vw, 20px);
+    border-radius: 15px;
+    padding: 12px;
     box-shadow: 0 0 15px rgba(138, 43, 226, 0.4);
     display: flex;
     flex-direction: column;
     transition: all 0.1s ease;
     width: 100%;
-    max-width: 280px;
+    max-width: 100%;
+    will-change: transform;
+}
+
+@media (min-width: 768px) {
+    .batch-card {
+        border-radius: 20px;
+        padding: clamp(15px, 3vw, 20px);
+        max-width: 280px;
+    }
 }
 
 .batch-card:hover {
@@ -212,7 +230,6 @@ body::after {
     pointer-events: none;
 }
 
-/* --- MODAL UNIVERSAL RESPONSIVE --- */
 .modal {
     display: none;
     position: fixed;
@@ -229,15 +246,24 @@ body::after {
 
 .modal-content {
     background: rgba(25, 25, 45, 0.95);
-    padding: clamp(15px, 3vw, 25px);
+    padding: 20px;
     border-radius: 16px;
-    width: min(90%, 600px);
+    max-width: 600px;
+    width: 90%;
+    max-height: 85vh;
+    overflow-y: auto;
     color: #fff;
     box-shadow: 0 0 25px rgba(138, 43, 226, 0.5);
     animation: fadeIn 0.1s ease-out;
     text-align: left;
-    max-height: 90vh;
-    overflow-y: auto;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        max-height: 80vh;
+        padding: 15px;
+    }
 }
 
 @keyframes fadeIn {
@@ -278,9 +304,8 @@ body::after {
     background: rgba(138, 43, 226, 0.6);
 }
 
-/* QRIS modal dan tombol pembayaran responsif */
 #qrisModal .modal-content {
-    width: min(90%, 400px);
+    max-width: 400px;
     text-align: center;
 }
 
@@ -305,15 +330,16 @@ body::after {
 
 .payment-options {
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
-    gap: 12px;
+    gap: 15px;
 }
 
 .payment-options .btn-card {
-    flex: 1 1 120px;
-    max-width: 140px;
     aspect-ratio: 1 / 1;
+    width: 100px;
+    height: 100px;
+    flex: none;
     padding: 10px 5px;
     font-size: 0.9rem;
     flex-direction: column;
@@ -384,7 +410,6 @@ body::after {
     background: rgba(0, 200, 100, 0.4);
 }
 
-/* Warning modal tetap responsif */
 .warning-modal {
     position: fixed;
     top: 0;
@@ -464,19 +489,63 @@ body::after {
     color: white;
 }
 
-/* HP kecil tambahan */
-@media (max-width: 400px) {
-    body {
-        padding: 20px 10px;
+/* Mobile Optimization */
+@media (max-width: 480px) {
+    .batch-card { 
+        max-width: 100%;
     }
-
-    .modal-content {
-        padding: 12px;
-        width: 95%;
+    
+    .container {
+        padding: 20px 15px;
+    }
+    
+    .header-text h1 {
+        font-size: 1.4rem;
+    }
+    
+    .header-text p {
         font-size: 0.85rem;
     }
-
+    
     .batch-card h2 {
         font-size: 1rem;
+    }
+    
+    .btn-card {
+        font-size: 0.75rem;
+        padding: 8px;
+    }
+    
+    .btn-card svg {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .payment-options {
+        flex-direction: row;
+        gap: 10px;
+    }
+    
+    .payment-options .btn-card {
+        width: 80px;
+        height: 80px;
+        font-size: 0.75rem;
+    }
+    
+    .payment-options .btn-card img {
+        max-height: 60px;
+    }
+    
+    .warning-modal-content {
+        padding: 20px 25px;
+    }
+    
+    .warning-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .warning-modal-content h2 {
+        font-size: 1.4rem;
     }
 }
