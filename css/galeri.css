@@ -151,13 +151,13 @@ body {
 }
 
 .original-price {
-    font-size: clamp(0.75rem, 1.8vw, 0.9rem);
+    font-size: clamp(0.65rem, 1.5vw, 0.8rem);
     color: #8c8ca9;
     text-decoration: line-through;
 }
 
 .promo-price {
-    font-size: clamp(0.9rem, 2vw, 1.1rem);
+    font-size: clamp(0.75rem, 1.8vw, 0.95rem);
     color: #ffc0e0;
     font-weight: bold;
 }
