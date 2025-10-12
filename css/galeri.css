@@ -214,6 +214,42 @@ body {
     background: rgba(0, 200, 100, 0.4); 
 }
 
+/* NEW: STYLING BARU UNTUK TOMBOL TESTIMONI */
+.btn-testimonial {
+    background: rgba(255, 105, 180, 0.25); 
+    border: 1px solid rgba(255, 105, 180, 0.4); 
+}
+.btn-testimonial:hover { 
+    background: rgba(255, 105, 180, 0.4); 
+}
+/* Styling Khusus untuk Modal Testimoni agar gambar full screen/tanpa scroll */
+#testimonialModal .modal-content {
+    max-width: 90%; /* Boleh lebih lebar untuk gambar */
+    max-height: 90vh; /* Membatasi tinggi agar tidak melebihi viewport */
+    overflow-y: hidden; /* Mencegah scroll pada konten modal */
+    padding: 15px; /* Kurangi padding agar gambar lebih dominan */
+    text-align: center;
+}
+
+#testimonialModal .modal-content img {
+    max-height: 80vh; /* Batasi tinggi gambar agar fit di layar */
+    width: auto; /* Memastikan lebar menyesuaikan aspek rasio */
+    object-fit: contain; /* Memastikan seluruh gambar terlihat */
+    margin: 0 auto 10px; /* Pusatkan gambar */
+}
+
+/* Penyesuaian untuk layar sangat kecil */
+@media (max-width: 768px) {
+    #testimonialModal .modal-content {
+        max-width: 95%;
+        max-height: 95vh;
+        padding: 10px;
+    }
+    #testimonialModal .modal-content img {
+        max-height: 85vh;
+    }
+}
+
 /* MENYEMBUNYIKAN TOMBOL LAMA */
 .btn-payment,
 .btn-confirm { 
