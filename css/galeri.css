@@ -176,6 +176,7 @@ body {
     flex-direction: column;
 }
 
+/* --- PERUBAHAN UKURAN FONT DAN IKON DIMULAI DI SINI --- */
 .btn-card {
     flex: 1;
     display: flex;
@@ -185,26 +186,40 @@ body {
     gap: 8px;
     border: none;
     border-radius: 12px;
-    padding: clamp(8px, 1.5vw, 10px);
+    padding: clamp(8px, 1.5vw, 10px); /* PADDING DIKEMBALIKAN KE ASLI */
     cursor: pointer;
     transition: all 0.1s ease;
     font-weight: 600;
-    font-size: clamp(0.7rem, 1.5vw, 0.85rem);
+    font-size: clamp(0.85rem, 1.8vw, 1rem); /* FONT DIPERBESAR */
     color: #fff;
     text-decoration: none;
 }
 
 .btn-card svg {
-    width: clamp(16px, 3.5vw, 18px);
-    height: clamp(16px, 3.5vw, 18px);
+    width: clamp(20px, 4vw, 22px); /* IKON DIPERBESAR */
+    height: clamp(20px, 4vw, 22px); /* IKON DIPERBESAR */
 }
+/* --- PERUBAHAN UKURAN FONT DAN IKON SELESAI DI SINI --- */
+
 
 .btn-info { background: rgba(100, 100, 255, 0.2); border: 1px solid rgba(100, 100, 255, 0.4); }
 .btn-info:hover { background: rgba(100, 100, 255, 0.35); }
-.btn-payment { background: rgba(255, 165, 0, 0.25); border: 1px solid rgba(255, 165, 0, 0.4); }
-.btn-payment:hover { background: rgba(255, 165, 0, 0.4); }
-.btn-confirm { background: rgba(0, 200, 100, 0.25); border: 1px solid rgba(0, 200, 100, 0.4); }
-.btn-confirm:hover { background: rgba(0, 200, 100, 0.4); }
+
+/* STYLING BARU UNTUK TOMBOL DM TIKTOK */
+.btn-dm { 
+    background: rgba(0, 200, 100, 0.25); 
+    border: 1px solid rgba(0, 200, 100, 0.4); 
+}
+.btn-dm:hover { 
+    background: rgba(0, 200, 100, 0.4); 
+}
+
+/* MENYEMBUNYIKAN TOMBOL LAMA */
+.btn-payment,
+.btn-confirm { 
+    display: none !important; 
+}
+
 
 .footer {
     text-align: center;
@@ -302,112 +317,6 @@ body {
 
 .close-modal:hover {
     background: rgba(138, 43, 226, 0.6);
-}
-
-#qrisModal .modal-content {
-    max-width: 400px;
-    text-align: center;
-}
-
-#qrisModal h3 {
-    margin-bottom: 10px;
-    font-size: 1.4rem;
-    text-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
-}
-
-#qrisModal .total-price {
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-    color: #ffc0e0;
-    font-weight: bold;
-}
-
-.payment-prompt {
-    font-size: 0.9rem;
-    color: #c0c0e0;
-    margin-bottom: 15px;
-}
-
-.payment-options {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    gap: 15px;
-}
-
-.payment-options .btn-card {
-    aspect-ratio: 1 / 1;
-    width: 100px;
-    height: 100px;
-    flex: none;
-    padding: 10px 5px;
-    font-size: 0.9rem;
-    flex-direction: column;
-    gap: 0px;
-    background: #ffffff;
-    border: 1px solid #e0e0e0;
-    color: #333;
-    transition: all 0.1s ease-out;
-    transform: translateY(0);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.payment-options .btn-card:hover {
-    background: #f0f0f0;
-    border-color: #d0d0d0;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.payment-options .btn-card img {
-    width: 100%;
-    height: 100%;
-    max-height: 80px;
-    object-fit: contain;
-    padding: 5px;
-    margin: auto;
-}
-
-.qris-display-area {
-    display: none;
-    margin-top: 20px;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-}
-
-.qris-image {
-    width: 100%;
-    max-width: 280px;
-    height: auto;
-    object-fit: contain;
-    border-radius: 16px;
-    border: 3px solid rgba(255, 105, 180, 0.3);
-    margin: 0 auto;
-    display: block;
-}
-
-.download-link {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 8px 18px;
-    border-radius: 10px;
-    background: rgba(0, 200, 100, 0.25);
-    border: 1px solid rgba(0, 200, 100, 0.4);
-    color: #fff;
-    font-weight: 600;
-    font-size: 0.8rem;
-    text-decoration: none;
-    transition: all 0.1s ease;
-    max-width: fit-content;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.download-link:hover {
-    background: rgba(0, 200, 100, 0.4);
 }
 
 .warning-modal {
