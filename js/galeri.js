@@ -24,7 +24,7 @@ document.querySelectorAll('.js-popup').forEach(btn => {
     });
 });
 
-// NEW: Pop-up Testimoni (Tetap menggunakan class js-testimonial-popup)
+// Pop-up Testimoni
 document.querySelectorAll('.js-testimonial-popup').forEach(btn => {
     btn.addEventListener('click', () => {
         const imgSrc = btn.getAttribute('data-img');
