@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Pop-up Informasi
+// Pop-up Informasi (Lihat Preview)
 document.querySelectorAll('.js-popup').forEach(btn => {
     btn.addEventListener('click', () => {
         const imgSrc = btn.getAttribute('data-img');
@@ -23,6 +23,16 @@ document.querySelectorAll('.js-popup').forEach(btn => {
         document.getElementById('infoModal').style.display = 'flex';
     });
 });
+
+// NEW: Pop-up Testimoni (Tetap menggunakan class js-testimonial-popup)
+document.querySelectorAll('.js-testimonial-popup').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const imgSrc = btn.getAttribute('data-img');
+        document.getElementById('testimonialImage').src = imgSrc;
+        document.getElementById('testimonialModal').style.display = 'flex';
+    });
+});
+
 
 // Tombol Tutup untuk semua modal
 document.querySelectorAll('.modal').forEach(modal => {
