@@ -222,33 +222,46 @@ body {
 .btn-testimonial:hover { 
     background: rgba(255, 105, 180, 0.4); 
 }
-/* Styling Khusus untuk Modal Testimoni agar gambar full screen/tanpa scroll */
+
+/* NEW: Style untuk tombol testimoni di header (agar lebarnya menyesuaikan konten) */
+.header-testi-btn {
+    width: auto; /* Biarkan lebar menyesuaikan konten */
+    max-width: 100%; /* Batas maksimal */
+    margin-top: 20px; /* Tambahkan jarak dari teks di atasnya */
+    border-radius: 15px;
+    border: 2px solid #ff69b4; /* Tambahkan border pink agar lebih menonjol */
+    /* Hapus flex: 1 agar tombol tidak mencoba mengisi lebar penuh container */
+    flex: none;
+    display: inline-flex; /* Agar width: auto berfungsi */
+    padding-left: 18px;
+    padding-right: 18px;
+}
+/* MOBILE: Agar tombol tetap terlihat baik di layar kecil */
+@media (max-width: 480px) {
+    .header-testi-btn {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Styling Khusus untuk Modal Testimoni agar gambar mengikuti style modal info produk */
 #testimonialModal .modal-content {
-    max-width: 90%; /* Boleh lebih lebar untuk gambar */
-    max-height: 90vh; /* Membatasi tinggi agar tidak melebihi viewport */
-    overflow-y: hidden; /* Mencegah scroll pada konten modal */
-    padding: 15px; /* Kurangi padding agar gambar lebih dominan */
-    text-align: center;
+    /* Menghilangkan override CSS sebelumnya dan mengembalikan ke style default .modal-content */
+    max-width: 600px;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding: 20px;
+    text-align: left;
 }
 
 #testimonialModal .modal-content img {
-    max-height: 80vh; /* Batasi tinggi gambar agar fit di layar */
-    width: auto; /* Memastikan lebar menyesuaikan aspek rasio */
-    object-fit: contain; /* Memastikan seluruh gambar terlihat */
-    margin: 0 auto 10px; /* Pusatkan gambar */
+    /* Mengikuti style default .modal-content img */
+    width: 100%;
+    aspect-ratio: auto;
+    object-fit: cover;
+    margin-bottom: 15px;
 }
 
-/* Penyesuaian untuk layar sangat kecil */
-@media (max-width: 768px) {
-    #testimonialModal .modal-content {
-        max-width: 95%;
-        max-height: 95vh;
-        padding: 10px;
-    }
-    #testimonialModal .modal-content img {
-        max-height: 85vh;
-    }
-}
 
 /* MENYEMBUNYIKAN TOMBOL LAMA */
 .btn-payment,
