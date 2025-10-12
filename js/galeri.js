@@ -15,12 +15,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Pop-up Informasi (Lihat Preview)
+// Pop-up Informasi (Lihat Preview - Default untuk JKT48, Esport, Korean)
 document.querySelectorAll('.js-popup').forEach(btn => {
     btn.addEventListener('click', () => {
         const imgSrc = btn.getAttribute('data-img');
         document.getElementById('modalImage').src = imgSrc;
         document.getElementById('infoModal').style.display = 'flex';
+    });
+});
+
+// NEW: Pop-up Informasi Khusus (Lihat Preview - Michie Batch)
+document.querySelectorAll('.js-michi-popup').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const imgSrc = btn.getAttribute('data-img');
+        document.getElementById('michiModalImage').src = imgSrc;
+        document.getElementById('michiInfoModal').style.display = 'flex';
     });
 });
 
@@ -34,7 +43,7 @@ document.querySelectorAll('.js-testimonial-popup').forEach(btn => {
 });
 
 
-// Tombol Tutup untuk semua modal
+// Tombol Tutup untuk semua modal (Sekarang menangani #infoModal, #michiInfoModal, dan #testimonialModal)
 document.querySelectorAll('.modal').forEach(modal => {
     modal.addEventListener('click', e => {
         if (e.target.classList.contains('modal') || e.target.classList.contains('close-modal')) {
