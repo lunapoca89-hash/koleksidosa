@@ -24,12 +24,21 @@ document.querySelectorAll('.js-popup').forEach(btn => {
     });
 });
 
-// NEW: Pop-up Informasi Khusus (Lihat Preview - Michie Batch)
+// NEW: Pop-up Informasi Khusus (Lihat Preview - Michie Batch dan Nadine Batch)
 document.querySelectorAll('.js-michi-popup').forEach(btn => {
     btn.addEventListener('click', () => {
         const imgSrc = btn.getAttribute('data-img');
         document.getElementById('michiModalImage').src = imgSrc;
         document.getElementById('michiInfoModal').style.display = 'flex';
+    });
+});
+
+// NEW: Pop-up Informasi Khusus (Lihat Preview - Custom Foto)
+document.querySelectorAll('.js-custom-popup').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const imgSrc = btn.getAttribute('data-img');
+        document.getElementById('customModalImage').src = imgSrc;
+        document.getElementById('customInfoModal').style.display = 'flex';
     });
 });
 
@@ -43,7 +52,7 @@ document.querySelectorAll('.js-testimonial-popup').forEach(btn => {
 });
 
 
-// Tombol Tutup untuk semua modal (Sekarang menangani #infoModal, #michiInfoModal, dan #testimonialModal)
+// Tombol Tutup untuk semua modal
 document.querySelectorAll('.modal').forEach(modal => {
     modal.addEventListener('click', e => {
         if (e.target.classList.contains('modal') || e.target.classList.contains('close-modal')) {
@@ -51,5 +60,3 @@ document.querySelectorAll('.modal').forEach(modal => {
         }
     });
 });
-
-// SCRIPT PEMBAYARAN QRIS (SINGLE PAYMENT METHOD) DIHAPUS KARENA SUDAH DIGANTI ALUR DM
