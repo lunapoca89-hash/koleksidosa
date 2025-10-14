@@ -42,6 +42,16 @@ document.querySelectorAll('.js-custom-popup').forEach(btn => {
     });
 });
 
+// NEW: Pop-up Informasi Khusus (Lihat Preview - Custom Foto Ketek)
+document.querySelectorAll('.js-ketek-popup').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const imgSrc = btn.getAttribute('data-img');
+        document.getElementById('customKetekModalImage').src = imgSrc;
+        document.getElementById('customKetekInfoModal').style.display = 'flex';
+    });
+});
+
+
 // Pop-up Testimoni
 document.querySelectorAll('.js-testimonial-popup').forEach(btn => {
     btn.addEventListener('click', () => {
