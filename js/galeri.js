@@ -24,12 +24,39 @@ document.querySelectorAll('.js-popup').forEach(btn => {
     });
 });
 
-// NEW: Pop-up Informasi Khusus (Lihat Preview - Michie Batch dan Nadine Batch)
+// NEW: Pop-up Informasi Khusus (Lihat Preview - Michie Batch dan Wasa Batch)
 document.querySelectorAll('.js-michi-popup').forEach(btn => {
     btn.addEventListener('click', () => {
         const imgSrc = btn.getAttribute('data-img');
         document.getElementById('michiModalImage').src = imgSrc;
         document.getElementById('michiInfoModal').style.display = 'flex';
+    });
+});
+
+// NEW: Pop-up Informasi Khusus (Lihat Preview - Nadine Max Batch)
+document.querySelectorAll('.js-nadine-max-popup').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const imgSrc = btn.getAttribute('data-img');
+        document.getElementById('nadineMaxModalImage').src = imgSrc;
+        document.getElementById('nadineMaxInfoModal').style.display = 'flex';
+    });
+});
+
+// NEW: Pop-up Informasi Khusus (Lihat Preview - Nadine Medium Batch)
+document.querySelectorAll('.js-nadine-medium-popup').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const imgSrc = btn.getAttribute('data-img');
+        document.getElementById('nadineMediumModalImage').src = imgSrc;
+        document.getElementById('nadineMediumInfoModal').style.display = 'flex';
+    });
+});
+
+// NEW: Pop-up Informasi Khusus (Lihat Preview - Nadine Mini Batch)
+document.querySelectorAll('.js-nadine-mini-popup').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const imgSrc = btn.getAttribute('data-img');
+        document.getElementById('nadineMiniModalImage').src = imgSrc;
+        document.getElementById('nadineMiniInfoModal').style.display = 'flex';
     });
 });
 
