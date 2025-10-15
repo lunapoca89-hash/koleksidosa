@@ -83,6 +83,22 @@ body {
     line-height: 1.6;
 }
 
+/* NEW: Style untuk VIP Tag */
+.vip-tag {
+    font-size: clamp(0.8rem, 1.8vw, 1rem) !important;
+    font-weight: 700;
+    color: #ff69b4 !important; /* Warna pink untuk menonjolkan */
+    margin-top: 15px !important;
+    margin-bottom: 5px !important; /* Memberi jarak ke tombol testimoni */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+    padding: 5px 15px;
+    border-radius: 8px;
+    background: rgba(255, 105, 180, 0.1);
+    display: inline-block;
+}
+
 /* Grid 2 kolom fixed di mobile, auto-fit di desktop */
 .photocard-wrapper {
     display: grid;
