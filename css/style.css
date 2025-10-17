@@ -201,6 +201,8 @@ body::after {
 }
 
 /* Link-Specific Styles */
+.discord { background: linear-gradient(135deg, rgba(88, 101, 242, 0.2), rgba(71, 82, 196, 0.2)); border-color: rgba(88, 101, 242, 0.4); }
+.twitter { background: linear-gradient(135deg, rgba(29, 161, 242, 0.2), rgba(13, 139, 217, 0.2)); border-color: rgba(29, 161, 242, 0.4); }
 .ai-bot1 { background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(238, 90, 82, 0.2)); border-color: rgba(255, 107, 107, 0.4); }
 .ai-bot2 { background: linear-gradient(135deg, rgba(78, 205, 196, 0.2), rgba(68, 160, 141, 0.2)); border-color: rgba(78, 205, 196, 0.4); }
 .link-dosa { background: linear-gradient(135deg, rgba(255, 69, 0, 0.2), rgba(255, 140, 0, 0.2)); border-color: rgba(255, 69, 0, 0.4); }
@@ -239,3 +241,107 @@ body::after {
     .link-btn { font-size: 16px; padding: 14px 22px; }
     .photocard-item { margin-right: 15px; }
 }
+
+/* START: STYLING BARU UNTUK WARNING MODAL (DISALIN DARI GALERI.CSS) */
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.warning-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 15, 35, 0.8);
+    backdrop-filter: blur(8px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.warning-modal-content {
+    background: linear-gradient(145deg, #1e1e3f, #1a1a2e);
+    border: 1px solid rgba(255, 105, 180, 0.3);
+    border-radius: 20px;
+    padding: 30px 40px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s ease-out;
+}
+
+.warning-icon {
+    width: 70px;
+    height: 70px;
+    color: #ffcc00;
+    margin: 0 auto 20px;
+}
+
+.warning-modal-content h2 {
+    font-size: 1.8rem;
+    color: #ffcc00;
+    text-shadow: 0 0 10px rgba(255, 204, 0, 0.5);
+    margin-bottom: 25px;
+}
+
+.warning-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.warning-btn {
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.btn-lanjut {
+    background-color: #28a745; 
+    color: white;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+}
+.btn-lanjut:hover {
+    background-color: #2ebf4f; 
+    transform: translateY(-2px);
+}
+
+.btn-kembali {
+    background-color: transparent;
+    color: #c0c0e0;
+    border: 2px solid #5a5a7a;
+}
+.btn-kembali:hover {
+    background-color: rgba(90, 90, 122, 0.3);
+    color: white;
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+    .warning-modal-content {
+        padding: 20px 25px;
+    }
+    
+    .warning-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .warning-modal-content h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* END: STYLING BARU UNTUK WARNING MODAL */
