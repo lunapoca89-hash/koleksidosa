@@ -2,16 +2,17 @@
 document.addEventListener('DOMContentLoaded', function() {
     const warningModal = document.getElementById('ageWarningModal');
     const proceedButton = document.getElementById('btnProceed');
-    const goBackButton = document.getElementById('btnGoBack');
+    const goBackButton = document.getElementById('btnGoBack'); //
 
-    warningModal.style.display = 'flex';
+    warningModal.style.display = 'flex'; //
 
-    proceedButton.addEventListener('click', function() {
-        warningModal.style.display = 'none';
+    proceedButton.addEventListener('click', function() { //
+        warningModal.style.display = 'none'; //
     });
 
     goBackButton.addEventListener('click', function() {
-        window.location.href = 'index.html';
+        // Menerapkan perubahan: Coba keluar dari web
+        window.location.replace("about:blank"); // Mengganti 'index.html' dengan 'about:blank'
     });
 });
 
