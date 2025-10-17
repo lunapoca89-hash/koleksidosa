@@ -17,7 +17,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Animated Background Elements */
+/* --- Animated Background Elements --- */
 body::before,
 body::after {
     content: '';
@@ -49,7 +49,7 @@ body::after {
     50% { transform: translate(30px, -30px); }
 }
 
-/* Main Container */
+/* --- Main Container --- */
 .container {
     max-width: 680px;
     width: 100%;
@@ -63,7 +63,7 @@ body::after {
     z-index: 1;
 }
 
-/* Photocard Slider Section */
+/* --- Photocard Slider Section --- */
 .photocard-container {
     position: relative;
     width: 100%;
@@ -118,7 +118,7 @@ body::after {
     100% { transform: translate3d(-50%, 0, 0); }
 }
 
-/* Profile Section */
+/* --- Profile Section --- */
 .profile {
     text-align: center;
     margin-bottom: 18px;
@@ -137,7 +137,7 @@ body::after {
     font-size: 16px;
 }
 
-/* Links Section */
+/* --- Links Section --- */
 .links {
     display: flex;
     flex-direction: column;
@@ -200,15 +200,15 @@ body::after {
     transform: scale(1.15) rotate(5deg);
 }
 
-/* Link-Specific Styles */
+/* --- Link-Specific Styles --- */
+/* (Hanya link yang digunakan di index.html yang ditonjolkan) */
 .discord { background: linear-gradient(135deg, rgba(88, 101, 242, 0.2), rgba(71, 82, 196, 0.2)); border-color: rgba(88, 101, 242, 0.4); }
 .twitter { background: linear-gradient(135deg, rgba(29, 161, 242, 0.2), rgba(13, 139, 217, 0.2)); border-color: rgba(29, 161, 242, 0.4); }
 .ai-bot1 { background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(238, 90, 82, 0.2)); border-color: rgba(255, 107, 107, 0.4); }
-.ai-bot2 { background: linear-gradient(135deg, rgba(78, 205, 196, 0.2), rgba(68, 160, 141, 0.2)); border-color: rgba(78, 205, 196, 0.4); }
 .link-dosa { background: linear-gradient(135deg, rgba(255, 69, 0, 0.2), rgba(255, 140, 0, 0.2)); border-color: rgba(255, 69, 0, 0.4); }
 .link-dosa:hover { box-shadow: 0 8px 30px rgba(255, 69, 0, 0.5); }
 
-/* Footer */
+/* --- Footer --- */
 .footer {
     text-align: center;
     margin-top: 40px;
@@ -216,7 +216,7 @@ body::after {
     font-size: 14px;
 }
 
-/* Click Effect */
+/* --- Click Effect (Floating Hearts) --- */
 .hearts {
     position: fixed;
     pointer-events: none;
@@ -234,7 +234,7 @@ body::after {
     100% { opacity: 0; transform: translateY(-100px) scale(1.5); }
 }
 
-/* Responsive Design */
+/* --- Responsive Design --- */
 @media (max-width: 600px) {
     .container { padding: 30px 20px; }
     .profile h1 { font-size: 28px; }
@@ -242,7 +242,9 @@ body::after {
     .photocard-item { margin-right: 15px; }
 }
 
-/* START: STYLING BARU UNTUK WARNING MODAL (DISALIN DARI GALERI.CSS) */
+/* ------------------------------------------- */
+/* --- START: AGE WARNING MODAL STYLING --- */
+/* ------------------------------------------- */
 
 @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.95); }
@@ -328,7 +330,7 @@ body::after {
     color: white;
 }
 
-/* Mobile Optimization */
+/* Mobile Optimization for Modal */
 @media (max-width: 480px) {
     .warning-modal-content {
         padding: 20px 25px;
@@ -344,4 +346,4 @@ body::after {
     }
 }
 
-/* END: STYLING BARU UNTUK WARNING MODAL */
+/* --- END: AGE WARNING MODAL STYLING --- */
