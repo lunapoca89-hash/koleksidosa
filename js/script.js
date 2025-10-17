@@ -1,3 +1,25 @@
+// SCRIPT BARU UNTUK POP UP PERINGATAN
+document.addEventListener('DOMContentLoaded', function() {
+    const warningModal = document.getElementById('ageWarningModal');
+    const proceedButton = document.getElementById('btnProceed');
+    const goBackButton = document.getElementById('btnGoBack');
+
+    // Menampilkan modal ketika halaman dimuat
+    warningModal.style.display = 'flex';
+
+    // Tombol Lanjut (Sembunyikan modal)
+    proceedButton.addEventListener('click', function() {
+        warningModal.style.display = 'none';
+    });
+
+    // Tombol Kembali (Keluar halaman web)
+    goBackButton.addEventListener('click', function() {
+        // Mengarahkan ke halaman kosong (about:blank) sebagai upaya untuk keluar
+        window.location.replace("about:blank");
+    });
+});
+// AKHIR SCRIPT POP UP PERINGATAN
+
 /**
  * 💖 Heart Click Effect
  * Creates a floating heart emoji wherever a link button is clicked.
