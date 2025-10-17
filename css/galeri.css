@@ -15,7 +15,7 @@ body {
     padding: 20px;
     position: relative;
     overflow-x: hidden;
-    background-attachment: fixed; /* MEMASTIKAN BACKGROUND TETAP */
+    background-attachment: fixed;
 }
 
 /* --- Animated Background Elements (Hanya aktif di desktop) --- */
@@ -46,7 +46,6 @@ body {
         animation: float 14s infinite reverse;
     }
 }
-
 
 @keyframes float {
     0%, 100% { transform: translate(0, 0); }
@@ -326,68 +325,78 @@ body {
     color: white;
 }
 
+/* --- Menghilangkan animasi background di mobile --- */
+@media (max-width: 768px) {
+    body::before,
+    body::after {
+        content: none;
+    }
+}
+
 /* --- Responsive Design (MOBILE FULL DISPLAY) --- */
 @media (max-width: 768px) {
-    /* Mengubah body agar konten bisa discroll dan mengisi layar penuh */
+    /* Body full screen mobile */
     body {
-        padding: 20px 10px; /* Padding sedikit lebih besar di atas dan bawah */
-        align-items: flex-start; /* Konten dimulai dari atas */
-        overflow-y: auto; /* Memungkinkan scroll vertikal */
-        min-height: auto; /* Hapus tinggi minimal agar konten menentukan tinggi */
+        padding: 0;
+        align-items: stretch;
+        min-height: 100vh;
+        display: block;
     }
 
-    /* Memastikan container mengisi lebar penuh dengan padding yang disesuaikan */
+    /* Container full screen tanpa border */
     .container { 
-        padding: 25px 15px;
-        border-radius: 20px;
+        padding: 20px 15px;
+        border-radius: 0;
         width: 100%;
         max-width: 100%;
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0;
+        min-height: 100vh;
+        border: none;
+        box-shadow: none;
     }
     
     .profile h1 { 
-        font-size: 28px;
-        margin-bottom: 10px;
+        font-size: 32px;
+        margin-bottom: 12px;
     }
     
     .profile p {
-        font-size: 14px;
+        font-size: 15px;
     }
     
     .link-btn { 
-        font-size: 16px; 
-        padding: 14px 22px;
-        gap: 10px;
+        font-size: 17px; 
+        padding: 16px 24px;
+        gap: 12px;
     }
     
     .link-icon {
-        width: 26px;
-        height: 26px;
+        width: 28px;
+        height: 28px;
     }
     
     .photocard-container {
-        margin-bottom: 15px;
+        margin-bottom: 20px;
         border-radius: 15px;
     }
     
     .photocard-item { 
         margin-right: 15px;
-        height: 80%;
+        height: 82%;
     }
     
     .links {
-        gap: 14px;
+        gap: 16px;
     }
     
     .footer {
-        margin-top: 25px;
-        font-size: 12px;
+        margin-top: 30px;
+        font-size: 13px;
+        padding-bottom: 20px;
     }
 }
 
-
-/* Mobile Optimization for Modal (Diperkecil lagi untuk layar sangat kecil) */
+/* Mobile Optimization for Modal */
 @media (max-width: 480px) {
     .warning-modal {
         padding: 15px;
@@ -419,14 +428,6 @@ body {
     .warning-btn {
         padding: 12px 18px;
         font-size: 0.95rem;
-    }
-}
-
-/* Menghilangkan animasi background di mobile */
-@media (max-width: 768px) {
-    body::before,
-    body::after {
-        content: none;
     }
 }
 
