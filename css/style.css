@@ -207,6 +207,7 @@ body {
 .discord { background: linear-gradient(135deg, rgba(88, 101, 242, 0.2), rgba(71, 82, 196, 0.2)); border-color: rgba(88, 101, 242, 0.4); }
 .twitter { background: linear-gradient(135deg, rgba(29, 161, 242, 0.2), rgba(13, 139, 217, 0.2)); border-color: rgba(29, 161, 242, 0.4); }
 .ai-bot1 { background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(238, 90, 82, 0.2)); border-color: rgba(255, 107, 107, 0.4); }
+.ai-bot2 { background: linear-gradient(135deg, rgba(255, 107, 107, 0.2), rgba(250, 102, 94, 0.2)); border-color: rgba(255, 107, 107, 0.4); }
 .link-dosa { background: linear-gradient(135deg, rgba(255, 69, 0, 0.2), rgba(255, 140, 0, 0.2)); border-color: rgba(255, 69, 0, 0.4); }
 .link-dosa:hover { box-shadow: 0 8px 30px rgba(255, 69, 0, 0.5); }
 
